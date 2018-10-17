@@ -1,0 +1,25 @@
+{
+    "contents": [
+        {
+            "id": 1,
+            "src": "http://leejus.fr/wp-content/uploads/2017/07/dessin-Rudolph-renne-1024x576.jpg",
+            "type": "img_url",
+            "title": "Img url Rennes",
+            "onlyContent": false
+        },
+        {
+            "id": 2,
+            "src": "https://www.youtube.com/embed/8vIT2da6N_o",
+            "type": "video",
+            "title": "Vidéo Youtube",
+            "onlyContent": false
+        },
+        {
+            "id": 3,
+            "src": "../lib/lutin2.jpg",
+            "type": "img",
+            "title": "Img",
+            "onlyContent": false
+        }
+    ]
+}

@@ -1,49 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './main.css';
 import './lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
-import LeftSide from './components/LeftSide/LeftSide'
-import MiddleSide from './components/MiddleSide/MiddleSide'
+// import * as contentMapTmp from '../../source/contentMap.json';
 
-//extends the object Component
-class Main extends Component {
-    //class constructor whith given properties
+class Main extends React.Component {
     constructor(props) {
         super(props);
 
+        // let temp_robot_list;
+        
+        // temp_robot_list=contentMapTmp;
+
         this.state = {
-            msg: "Welcome to robot shop",
-            one_robot: {
-                "id": 1,
-                "title": "robotA",
-                "visual_type": "video",
-                "visual_img": "https://www.youtube.com/watch?v=8vIT2da6N_o"
-            }
-        };
+            // contentMap: contentMapTmp,
+        }
     }
 
-
-    //render function use to update the virtual dom
     render() {
-
         return (
-            <div className="container-fluid">
-                <div className="row">
-                    <h1>{this.state.msg}</h1>
 
-                    <div className="col-md-4">
-                        <LeftSide
-                            robot_value={this.state.one_robot}></LeftSide>
+            <div className='container-fluid height-100'>
+                <div className="row height-100">
+                    <div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
                     </div>
-
-                    <div className="col-md-4">
-                        <MiddleSide></MiddleSide>
+                    <div className='col-md-6 col-lg-6 height-100'>
                     </div>
-
-                    <div className="col-md-4">
+                    <div className='col-md-3 col-lg-3 height-100'>
                     </div>
                 </div>
-
             </div>
-
         );
     }
 }
