@@ -16,7 +16,7 @@
         },
         {
             "id": 3,
-            "src": "../lib/lutin2.jpg",
+            "src": "/lutin2.jpg",
             "type": "img",
             "title": "Img",
             "onlyContent": false
