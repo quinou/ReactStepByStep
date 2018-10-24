@@ -2,7 +2,8 @@ import React from 'react';
 import './main.css';
 import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import * as contentMapTmp from '../../source/contentMap.json';
-import Content from '../Common/content/containers/content'
+import BrowseContentPanel from '../BrowseContentPanel/containers/browseContentPanel'
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Main extends React.Component {
         displaySlides = this.state.contentMap.contents.map(
             (slide)=>{
                 console.log(slide)
-                return(<Content key={slide.id} root_value={slide}> </Content>)
+                return(<BrowseContentPanel key={slide.id} slide_value={slide}> </BrowseContentPanel>)
             }
         );
         
@@ -34,11 +35,10 @@ class Main extends React.Component {
                     </div>
                     <div className='col-md-6 col-lg-6 height-100'>
                         <p>Middle</p>
-
-                        {displaySlides}
                     </div>
                     <div className='col-md-3 col-lg-3 height-100'>
                         <p>Right</p>
+                        {displaySlides}
                     </div>
                 </div>
             </div>

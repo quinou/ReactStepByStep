@@ -2,23 +2,44 @@
     "contents": [
         {
             "id": 1,
-            "src": "http://leejus.fr/wp-content/uploads/2017/07/dessin-Rudolph-renne-1024x576.jpg",
-            "type": "img_url",
-            "title": "Img url Rennes",
+            "title": "content Title 1",
+            "type": "video",
+            "src": "https://www.youtube.com/embed/WjoDEQqyTig",
             "onlyContent": false
         },
         {
             "id": 2,
-            "src": "https://www.youtube.com/embed/8vIT2da6N_o",
-            "type": "video",
-            "title": "Vidéo Youtube",
-            "onlyContent": false
+            "title": "content Title 2",
+            "type": "img_url",
+            "src": "http://zoywiki.com/images/6/68/LotS_Robot_Reindeer.png",
+            "onlyContent": true
         },
         {
             "id": 3,
-            "src": "/lutin2.jpg",
+            "title": "content Title 3",
             "type": "img",
-            "title": "Img",
+            "src": "/robot.jpg",
+            "onlyContent": false
+        },
+        {
+            "id": 4,
+            "title": "content Title 4",
+            "type": "web",
+            "src": "http://www.roboware.me/#/",
+            "onlyContent": true
+        },
+        {
+            "id": 5,
+            "title": "content Title 5",
+            "type": "img_url",
+            "src": "http://zoywiki.com/images/6/68/LotS_Robot_Reindeer.png",
+            "onlyContent": false
+        },
+        {
+            "id": 6,
+            "title": "content Title 6",
+            "type": "video",
+            "src": "https://www.youtube.com/embed/WjoDEQqyTig",
             "onlyContent": false
         }
     ]
