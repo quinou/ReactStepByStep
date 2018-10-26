@@ -1,4 +1,6 @@
 import React from 'react';
+import ComponentsContent from '../components/componentsContent';
+
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 
 class Content extends React.Component {
@@ -12,53 +14,33 @@ class Content extends React.Component {
 
     render() {
         let render_slide;
-        let render_content;
-
-        switch (this.props.slide_value.type) {
-            case "img":
-                render_content = (
-                    <img className='imgCard' alt={this.props.slide_value.title} src={this.props.slide_value.src} />
-                );
-                break;
-            case "img_url":
-                render_content = (
-                    <img className='imgCard' alt={this.props.slide_value.title} src={this.props.slide_value.src} />
-                );
-                break;
-            case "video":
-                render_content = (
-                    <object width="100%" height="100%" aria-label={this.props.slide_value.title} data={this.props.slide_value.src}></object>
-                );
-                break;
-            case "web":
-                render_content = (
-                    <iframe src={this.props.slide_value.src} title={this.props.slide_value.title} height="100%" width="100%"></iframe>
-                );
-                break;
-            default:
-                render_content = ("");
-                break;
-        }
-
         if (this.props.slide_value.onlyContent) {
             render_slide = (
-                <div className="thumbnail">
-                    {render_content}
-                </div>
+                <ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent>
             )
         }
         else {
             render_slide = (
-                <div className="thumbnail">
-                    {render_content}
-                    <h3>ID: {this.props.slide_value.id} and Title: {this.props.slide_value.title}</h3>
+                <div>
+                    <ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent>
+                    <div>
+                        <h1>Title: {this.props.slide_value.title}</h1>
+                        <h3>ID: {this.props.slide_value.id} </h3>
+                    </div>
                 </div>
             )
         }
-        return (
-            <div>{render_slide}</div>
 
-        );
+        return (
+        
+        <div className="panel panel-default">
+            <div className="panel-body">
+                {render_slide}
+            </div>
+        </div>
+                
+ 
+    );
     }
 }
 

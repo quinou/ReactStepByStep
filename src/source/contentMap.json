@@ -1,46 +1,39 @@
 {
-    "contents": [
-        {
-            "id": 1,
-            "title": "content Title 1",
-            "type": "video",
-            "src": "https://www.youtube.com/embed/WjoDEQqyTig",
-            "onlyContent": false
-        },
-        {
-            "id": 2,
-            "title": "content Title 2",
-            "type": "img_url",
-            "src": "http://zoywiki.com/images/6/68/LotS_Robot_Reindeer.png",
-            "onlyContent": true
-        },
-        {
-            "id": 3,
-            "title": "content Title 3",
-            "type": "img",
-            "src": "/robot.jpg",
-            "onlyContent": false
-        },
-        {
-            "id": 4,
-            "title": "content Title 4",
-            "type": "web",
-            "src": "http://www.roboware.me/#/",
-            "onlyContent": true
-        },
-        {
-            "id": 5,
-            "title": "content Title 5",
-            "type": "img_url",
-            "src": "http://zoywiki.com/images/6/68/LotS_Robot_Reindeer.png",
-            "onlyContent": false
-        },
-        {
-            "id": 6,
-            "title": "content Title 6",
-            "type": "video",
-            "src": "https://www.youtube.com/embed/WjoDEQqyTig",
-            "onlyContent": false
-        }
-    ]
+    "temp": {
+        "id": "temp",
+        "title": "content Title",
+        "type": "img_url",
+        "src": "http://www.wauchopeshowsociety.com.au/images/sl_website-under-construction.jpeg"
+    },
+    "1": {
+        "id": 1,
+        "title": "content Title 1",
+        "type": "video",
+        "src": "https://www.youtube.com/embed/WjoDEQqyTig"
+    },
+    "2": {
+        "id": 2,
+        "title": "content Title 2",
+        "type": "img_url",
+        "src": "http://zoywiki.com/images/6/68/LotS_Robot_Reindeer.png"
+    },
+    "3": {
+        "id": 3,
+        "title": "content Title 3",
+        "type": "web",
+        "src": "http://www.roboware.me/#/"
+    },
+    "4": {
+        "id": 4,
+        "title": "content Title 4",
+        "type": "video",
+        "src": "https://www.youtube.com/embed/7DmLkugdh9s"
+    },
+    "5": {
+        "id": 5,
+        "title": "content Title 5",
+        "type": "img",
+        "src": "/robot.jpg",
+        "onlyContent": false
+    }
 }

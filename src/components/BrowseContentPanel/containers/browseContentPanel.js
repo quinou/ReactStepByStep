@@ -1,25 +1,44 @@
 import React from 'react';
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
-import Content from '../../Common/content/containers/content'
+import Content from '../../Common/content/containers/content';
+import { connect } from 'react-redux';
 
 
 class BrowseContentPanel extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-
-        }
+        this.state = {}
+        
     }
 
     render() {
+        let displaySlides=[];
+        for(let content in this.props.content_map){
+            console.log(this.props.content_map[content]);
+            displaySlides.push(<Content key={this.props.content_map[content].id} slide_value={this.props.content_map[content]}> </Content>);
+               
+        }
+        
         
         return (
-            <Content slide_value={this.props.slide_value} className="thumbnail"></Content>
+            <div className="panel panel-default">
+                <div className="panel-body">
+                {displaySlides}
+                </div>
+            </div>
 
         );
     }
+
+    
 }
 
-//export the current classes in order to be used outside
-export default BrowseContentPanel;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        content_map: state.updateModelReducer.content_map,
+    }
+};
+
+export default connect(mapStateToProps)(BrowseContentPanel);
+
