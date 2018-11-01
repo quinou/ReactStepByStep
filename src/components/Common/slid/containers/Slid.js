@@ -5,7 +5,7 @@ import EditMetaSlid from '../components/EditMetaSlid';
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import './slid.css';
 import { connect } from 'react-redux';
-import { setSelectedSlid, updateSlid} from '../../../../actions';
+import { setSelectedSlid, updateSlid } from '../../../../actions';
 
 class Slid extends React.Component {
 
@@ -34,7 +34,7 @@ class Slid extends React.Component {
         //call the set State function (from react component)
         // lead to update state object whith the given value
         // lead to re-render the current component
-        this.updateCurrentSlid(this.props.slide.id, e.target.value,this.props.slide.txt,  this.props.slide.content_id);
+        this.updateCurrentSlid(this.props.slide.id, e.target.value, this.props.slide.txt, this.props.slide.content_id);
 
     }
 
@@ -42,7 +42,7 @@ class Slid extends React.Component {
         this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, e.target.value, this.props.slide.content_id);
     }
 
-    updateCurrentSlid(id,title,txt,content_id){
+    updateCurrentSlid(id, title, txt, content_id) {
         const tmpSlid = {
             id: id,
             title: title,
@@ -57,18 +57,25 @@ class Slid extends React.Component {
         if (this.props.displayMode === "SHORT") {
             render_slide = (
                 <div>
-                    <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <h2>{this.props.slide.title}</h2>
+                            <h3 className="text-muted">{this.props.slide.txt}</h3>
+                            <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
+                        </div>
+                    </div>
+
                 </div>
             )
         }
         else if (this.props.displayMode === "FULL_MNG") {
             render_slide = (
                 <div>
-                    <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
                     <EditMetaSlid title={this.props.slide.title}
                         txt={this.props.slide.txt}
                         handleChangeText={this.handleChangeText}
                         handleChangeTitle={this.handleChangeTitle}></EditMetaSlid>
+                    <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
                 </div>
             )
 
@@ -76,12 +83,8 @@ class Slid extends React.Component {
 
         return (
 
-            <div className="panel panel-default" onClick={() => { this.updateSelectedSlid() }}>
-                <div className="panel-body">
-                    <h1>Title: {this.props.slide.title}</h1>
-                    <h3>{this.props.slide.txt} </h3>
-                    {render_slide}
-                </div>
+            <div onClick={() => { this.updateSelectedSlid() }}>
+                {render_slide}
             </div>
 
 

@@ -1,0 +1,25 @@
+html,body{
+    /* height: -webkit-fill-available; */
+    width: 100%;
+    /* margin: 20px; */
+    padding: 10px;
+    overflow: hidden;
+    
+}
+
+.height-100{
+    height: -webkit-fill-available;
+}
+
+.height-20{
+    height: 20%;
+}
+
+.height-80{
+    height: 80%;
+}
+
+.vertical-scroll{
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Slid from '../../slid/containers/Slid';
-
+import './slidList.css';
 class SlidList extends React.Component {
     constructor(props) {
         super(props);
@@ -11,12 +11,11 @@ class SlidList extends React.Component {
         let slide_array = [];
 
         this.props.slidArray.forEach(element => {
-            console.log(element.id);
             slide_array.push(<Slid key={element.id} slide={element} displayMode="SHORT"></Slid>)
         });
 
         return (
-            <div>
+            <div className="vertical-scroll height-100">
                 {slide_array}
             </div>
 

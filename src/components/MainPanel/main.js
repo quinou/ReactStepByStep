@@ -55,16 +55,13 @@ class Main extends React.Component {
             <Provider store={store} >
                 <div className='container-fluid height-100'>
                     <div className="row height-100">
-                        <div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
-                            <p>Left</p>
+                        <div className='col-md-3 col-lg-3 height-100'>
                             <Presentation></Presentation>
                         </div>
                         <div className='col-md-6 col-lg-6 height-100'>
-                            <p>Middle</p>
-                            <EditSlidPanel selected_slid={this.state.slide2}></EditSlidPanel>
+                            <EditSlidPanel></EditSlidPanel>
                         </div>
                         <div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
-                            <p>Right</p>
                             <BrowseContentPanel> </BrowseContentPanel>
                         </div>
                     </div>

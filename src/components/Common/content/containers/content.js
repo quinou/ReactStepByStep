@@ -24,7 +24,6 @@ class Content extends React.Component {
                 <div>
                     <ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent>
                     <div>
-                        <h1>Title: {this.props.slide_value.title}</h1>
                         <h3>ID: {this.props.slide_value.id} </h3>
                     </div>
                 </div>
