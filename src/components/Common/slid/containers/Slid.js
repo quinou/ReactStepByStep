@@ -5,7 +5,7 @@ import EditMetaSlid from '../components/EditMetaSlid';
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import './slid.css';
 import { connect } from 'react-redux';
-import { setSelectedSlid } from '../../../../actions'
+import { setSelectedSlid, updateSlid} from '../../../../actions';
 
 class Slid extends React.Component {
 
@@ -13,8 +13,6 @@ class Slid extends React.Component {
         super(props);
         this.updateSelectedSlid = this.updateSelectedSlid.bind(this);
         this.state = {
-            title: this.props.slide.title,
-            txt: this.props.slide.txt
         }
         //binding of the function given the ability to use this
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
@@ -36,11 +34,22 @@ class Slid extends React.Component {
         //call the set State function (from react component)
         // lead to update state object whith the given value
         // lead to re-render the current component
-        this.setState({ title: e.target.value });
+        this.updateCurrentSlid(this.props.slide.id, e.target.value,this.props.slide.txt,  this.props.slide.content_id);
+
     }
 
     handleChangeText(e) {
-        this.setState({ txt: e.target.value });
+        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, e.target.value, this.props.slide.content_id);
+    }
+
+    updateCurrentSlid(id,title,txt,content_id){
+        const tmpSlid = {
+            id: id,
+            title: title,
+            txt: txt,
+            content_id: content_id
+        };
+        this.props.dispatch(updateSlid(tmpSlid));
     }
 
     render() {
@@ -56,8 +65,8 @@ class Slid extends React.Component {
             render_slide = (
                 <div>
                     <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
-                    <EditMetaSlid title={this.state.title}
-                        txt={this.state.txt}
+                    <EditMetaSlid title={this.props.slide.title}
+                        txt={this.props.slide.txt}
                         handleChangeText={this.handleChangeText}
                         handleChangeTitle={this.handleChangeTitle}></EditMetaSlid>
                 </div>
@@ -69,8 +78,8 @@ class Slid extends React.Component {
 
             <div className="panel panel-default" onClick={() => { this.updateSelectedSlid() }}>
                 <div className="panel-body">
-                    <h1>Title: {this.state.title}</h1>
-                    <h3>{this.state.txt} </h3>
+                    <h1>Title: {this.props.slide.title}</h1>
+                    <h3>{this.props.slide.txt} </h3>
                     {render_slide}
                 </div>
             </div>

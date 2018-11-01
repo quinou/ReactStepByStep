@@ -1,15 +1,17 @@
 import React from 'react';
 import Slid from '../../Common/slid/containers/Slid'
 
+
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 class EditSlidPanel extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { }
+        this.state = {}
         this.getSlidSelected = this.getSlidSelected.bind(this);
     }
+
 
     getSlidSelected() {
         let array_render = [];
@@ -19,15 +21,13 @@ class EditSlidPanel extends React.Component {
             return;
 
         }
-            array_render = (
-                <Slid
-                    key={this.props.selected_slid.id}
-                    slide={this.props.selected_slid}
-                    displayMode="FULL_MNG"></Slid>
+        array_render = (
+            <Slid
+                key={this.props.selected_slid.id}
+                slide={this.props.selected_slid}
+                displayMode="FULL_MNG"></Slid>
 
-            );
-        
-
+        );
 
         return array_render;
     }
@@ -43,8 +43,16 @@ class EditSlidPanel extends React.Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
+    let mySelectedSlid = {};
+    for (let slidTmp in state.updateModelReducer.presentation.slidArray) {
+        if (state.updateModelReducer.presentation.slidArray[slidTmp].id === state.selectedReducer.slid.id) {
+            mySelectedSlid = state.updateModelReducer.presentation.slidArray[slidTmp];
+        }
+    }
+
     return {
-        selected_slid: state.selectedReducer.slid
+        selected_slid: mySelectedSlid
+
     }
 };
 

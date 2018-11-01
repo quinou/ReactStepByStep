@@ -47,6 +47,7 @@ class Main extends React.Component {
             presentationMap: presentationTmp
         }
         store.dispatch(updateContentMap(contentMapTmp));
+        store.dispatch(updatePresentation(presTmp));
     }
 
     render() {
@@ -56,7 +57,7 @@ class Main extends React.Component {
                     <div className="row height-100">
                         <div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
                             <p>Left</p>
-                            <Presentation presentation={this.state.presentationMap}></Presentation>
+                            <Presentation></Presentation>
                         </div>
                         <div className='col-md-6 col-lg-6 height-100'>
                             <p>Middle</p>

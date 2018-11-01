@@ -8,7 +8,7 @@ export default class EditMetaPres extends React.Component {
     render() {
         return (
             <div className="form-group">
-                <label htmlFor="currentSlideTitle">Title </label>
+                <label htmlFor="currentSlideTitle">Title</label>
                 <input
                     type="text"
                     className="form-control"
