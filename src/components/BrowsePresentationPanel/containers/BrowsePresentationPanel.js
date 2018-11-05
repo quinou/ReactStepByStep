@@ -29,6 +29,7 @@ class BrowsePresentationPanel extends React.Component {
     }
 
     render() {
+        console.log("SlidArray: " + this.props.presentation.slidArray);
 
         return (
             <div>
@@ -36,7 +37,6 @@ class BrowsePresentationPanel extends React.Component {
                         description={this.props.presentation.description}
                         handleChangeDescription={this.handleChangeDescription}
                         handleChangeTitle={this.handleChangeTitle}></EditMetaPres>
-
                 <SlidList slidArray={this.props.presentation.slidArray}></SlidList>
 
             </div>

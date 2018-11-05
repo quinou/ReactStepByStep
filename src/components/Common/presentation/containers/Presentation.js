@@ -17,7 +17,7 @@ class Presentation extends React.Component {
 
 
     render() {
-
+        console.log(this.props.presentation);
         return (
             <BrowsePresentationPanel></BrowsePresentationPanel>
 

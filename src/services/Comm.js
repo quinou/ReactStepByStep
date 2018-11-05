@@ -15,13 +15,16 @@ class Comm {
         return '';
     }
 
+
     loadPres(presId, callback, callbackErr) {
+        console.log("LOAD PRES");
         axios.get('/loadPres')
             .then(function (data) {
+                console.log("After theng")
                 var size = Object.keys(data.data).length;
                 console.log("raw data");
                 console.log(data.data);
-                let loadedPres = ""
+                let loadedPres = "";
                 if (size > 0) {
                     console.log("key");
                     console.log(Object.keys(data.data)[0]);
@@ -33,6 +36,7 @@ class Comm {
             })
             .catch(function (error) {
                 callbackErr(error);
+                console.log("Error " + error);
             });
     }
 

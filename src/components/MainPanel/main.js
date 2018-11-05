@@ -13,50 +13,38 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import globalReducer from '../../reducers'
 import {updateContentMap,updatePresentation} from '../../actions';
+import Comm from '../../services/Comm'
 
 const store = createStore(globalReducer);
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
-
-        var slide1Tmp = {
-            id: 1,
-            title: "Title slide",
-            txt: "Text du slide",
-            content_id: 1,
-        };
-
-        var slide2Tmp = {
-            id: 2,
-            title: "Title slide 2",
-            txt: "Text du slide 2 ",
-            content_id: 2,
-        }
-
-        var presentationTmp = {
-            id: 0,
-            title: "Titre de la présentation",
-            description: "Description de la présentation",
-            slidArray: [slide1Tmp, slide2Tmp],
-        }
-
-        this.state = {
-            slide1: slide1Tmp,
-            slide2: slide2Tmp,
-            presentationMap: presentationTmp
-        }
-        store.dispatch(updateContentMap(contentMapTmp));
-        store.dispatch(updatePresentation(presTmp));
+        
+    }
+    loadPresentation(){
+        var comm = new Comm();
+        let render_presentation;
+        comm.loadPres(18, (res) => {
+            console.log("PRES: " + JSON.stringify(res));
+            store.dispatch(updatePresentation(res));
+            store.dispatch(updateContentMap(contentMapTmp));
+            render_presentation = (<Presentation></Presentation>);
+            return render_presentation;
+        }, (error) => {
+            console.log("ERROR: " + error);
+        });
     }
 
     render() {
+        let render_presentation = this.loadPresentation();
+        console.log("Render presentation: " + render_presentation);
         return (
-            <Provider store={store} >
+            <Provider store={store}>
                 <div className='container-fluid height-100'>
                     <div className="row height-100">
                         <div className='col-md-3 col-lg-3 height-100'>
-                            <Presentation></Presentation>
+                            {render_presentation}
                         </div>
                         <div className='col-md-6 col-lg-6 height-100'>
                             <EditSlidPanel></EditSlidPanel>
@@ -70,7 +58,4 @@ class Main extends React.Component {
         );
     }
 }
-
-
-
 export default Main;

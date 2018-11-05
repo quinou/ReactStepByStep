@@ -18,7 +18,6 @@ class EditSlidPanel extends React.Component {
         if (this.props.selected_slid.id === undefined) {
             console.log("Undefined");
             return;
-
         }
         array_render = (
             <Slid
