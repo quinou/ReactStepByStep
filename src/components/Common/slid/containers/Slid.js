@@ -52,23 +52,29 @@ class Slid extends React.Component {
         this.props.dispatch(updateSlid(tmpSlid));
     }
 
-   
+    onDragOver(ev) {
+        ev.preventDefault();
+    }
+
+    onDrop(ev) {
+        let data = ev.dataTransfer.getData("text");
+        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, this.props.slide.txt, data);  
+        
+        console.log("DROP: " + data);
+    }
 
     render() {
-
         let render_slide;
         if (this.props.displayMode === "SHORT") {
-            console.log("Content: " + this.props.slide.content_id);
             render_slide = (
                 <div>
                     <div className="panel panel-default">
                         <div className="panel-body">
                             <h2>{this.props.slide.title}</h2>
                             <h3 className="text-muted">{this.props.slide.txt}</h3>
-                            <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
+                            <div onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}><ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent></div>
                         </div>
                     </div>
-
                 </div>
             )
         }
@@ -79,7 +85,7 @@ class Slid extends React.Component {
                         txt={this.props.slide.txt}
                         handleChangeText={this.handleChangeText}
                         handleChangeTitle={this.handleChangeTitle}></EditMetaSlid>
-                    <ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent>
+                    <div onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}><ComponentsContent slide_content_id={this.props.slide.content_id} className="thumbnail"></ComponentsContent></div>
                 </div>
             )
 
@@ -88,7 +94,7 @@ class Slid extends React.Component {
         return (
 
             <div>
-               
+               <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 <div onClick={() => { this.updateSelectedSlid() }}>
                     {render_slide}
                 </div>

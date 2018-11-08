@@ -12,20 +12,6 @@ class BrowseContentPanel extends React.Component {
 
     }
 
-    allowDrop(ev) {
-        ev.preventDefault();
-    }
-
-    drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
-    }
-
     render() {
         let displaySlides = [];
         for (let content in this.props.content_map) {
@@ -35,10 +21,7 @@ class BrowseContentPanel extends React.Component {
 
 
         return (
-            <div >
-
-                <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69"></img>
-                <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div>
                 {displaySlides}
             </div>
 

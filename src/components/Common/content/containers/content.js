@@ -12,19 +12,27 @@ class Content extends React.Component {
         }
     }
 
+    allowDrop(ev) {
+        ev.preventDefault();
+    }
+    
+    onDragStart(ev, content) {
+        console.log("DRAG: ", content.id);
+        ev.dataTransfer.setData("text/plain", content.id);
+    }
 
     render() {
 
         let render_slide;
         if (this.props.slide_value.onlyContent) {
             render_slide = (
-                <ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent>
+                <div className="draggable" draggable="true" onDragStart={(e) => this.onDragStart(e,this.props.slide_value)}><ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent></div>
             )
         }
         else {
             render_slide = (
                 <div>
-                    <ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent>
+                    <div className="draggable" draggable="true" onDragStart={(e) => this.onDragStart(e,this.props.slide_value)}><ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent></div>
                     <div>
                         <h3>ID: {this.props.slide_value.id} </h3>
                     </div>
@@ -33,12 +41,11 @@ class Content extends React.Component {
         }
 
         return (
-                <div className="panel panel-default">
-                    <div className="panel-body">
-                        {render_slide}
-                    </div>
+            <div className="panel panel-default">
+                <div className="panel-body">
+                    {render_slide}
                 </div>
-
+            </div>
         );
     }
 }

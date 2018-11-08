@@ -15,9 +15,6 @@ class ComponentsContent extends React.Component {
         let render_visual;
 
         let slide_value = this.props.content_map[this.props.slide_content_id];
-        console.log("ID; " + this.props.slide_content_id);
-console.log("COntent map:  " + JSON.stringify(this.props.content_map));
-        console.log('Slide value type: ' + slide_value.type);
         switch (slide_value.type) {
             case "img":
             case "img_url":
