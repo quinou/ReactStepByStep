@@ -52,9 +52,13 @@ class Slid extends React.Component {
         this.props.dispatch(updateSlid(tmpSlid));
     }
 
+   
+
     render() {
+
         let render_slide;
         if (this.props.displayMode === "SHORT") {
+            console.log("Content: " + this.props.slide.content_id);
             render_slide = (
                 <div>
                     <div className="panel panel-default">
@@ -83,8 +87,11 @@ class Slid extends React.Component {
 
         return (
 
-            <div onClick={() => { this.updateSelectedSlid() }}>
-                {render_slide}
+            <div>
+               
+                <div onClick={() => { this.updateSelectedSlid() }}>
+                    {render_slide}
+                </div>
             </div>
 
 

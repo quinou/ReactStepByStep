@@ -12,7 +12,9 @@ class Content extends React.Component {
         }
     }
 
+
     render() {
+
         let render_slide;
         if (this.props.slide_value.onlyContent) {
             render_slide = (
@@ -31,15 +33,13 @@ class Content extends React.Component {
         }
 
         return (
-        
-        <div className="panel panel-default">
-            <div className="panel-body">
-                {render_slide}
-            </div>
-        </div>
-                
- 
-    );
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        {render_slide}
+                    </div>
+                </div>
+
+        );
     }
 }
 

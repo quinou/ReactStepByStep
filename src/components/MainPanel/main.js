@@ -19,26 +19,37 @@ const store = createStore(globalReducer);
 
 class Main extends React.Component {
     constructor(props) {
-        super(props);
-        
+        super(props);     
     }
     loadPresentation(){
         var comm = new Comm();
-        let render_presentation;
-        comm.loadPres(18, (res) => {
-            console.log("PRES: " + JSON.stringify(res));
-            store.dispatch(updatePresentation(res));
-            store.dispatch(updateContentMap(contentMapTmp));
-            render_presentation = (<Presentation></Presentation>);
-            return render_presentation;
-        }, (error) => {
-            console.log("ERROR: " + error);
+        comm.loadPres(18, (resPres) => {
+            console.log("PRES: " + resPres);
+            comm.loadContent((resContent) => {
+                console.log("CONTENT: " + resContent);
+                store.dispatch(updateContentMap(resContent));
+                store.dispatch(updatePresentation(resPres));
+            }, (errorContent) => {
+                console.log("ERROR CONTENT: " + errorContent);
+            });
+            
+            
+        }, (errorPres) => {
+            console.log("ERROR PRES: " + errorPres);
         });
     }
 
+    loadContent(){
+        var comm = new Comm();
+        
+    }
+
+    
+
+
+
     render() {
-        let render_presentation = this.loadPresentation();
-        console.log("Render presentation: " + render_presentation);
+        this.loadPresentation();
         return (
             <Provider store={store}>
                 <div className='container-fluid height-100'>

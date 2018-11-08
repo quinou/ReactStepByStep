@@ -16,12 +16,13 @@ class Presentation extends React.Component {
     }
 
 
+
+
     render() {
-        console.log(this.props.presentation);
+        
+        console.log(this.props.presentation.slidArray);
         return (
             <BrowsePresentationPanel></BrowsePresentationPanel>
-
-
         );
     }
 }

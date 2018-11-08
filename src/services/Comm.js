@@ -17,17 +17,11 @@ class Comm {
 
 
     loadPres(presId, callback, callbackErr) {
-        console.log("LOAD PRES");
         axios.get('/loadPres')
             .then(function (data) {
-                console.log("After theng")
                 var size = Object.keys(data.data).length;
-                console.log("raw data");
-                console.log(data.data);
                 let loadedPres = "";
                 if (size > 0) {
-                    console.log("key");
-                    console.log(Object.keys(data.data)[0]);
                     console.log("data");
                     console.log(data.data[Object.keys(data.data)[0]]);
                     loadedPres = data.data[Object.keys(data.data)[0]];
@@ -36,21 +30,20 @@ class Comm {
             })
             .catch(function (error) {
                 callbackErr(error);
-                console.log("Error " + error);
             });
     }
 
     loadContent(callback, callbackErr) {
-        axios.get('/resources_list')
+        axios.get('/contents')
             .then(function (data) {
-                //console.log("raw content data");
-                //console.log(data.data);
+                console.log("raw content data");
+                console.log(data.data);
                 var size = Object.keys(data.data).length;
                 let contentMap = {}
                 for (var i = 0; i < size; i++) {
                     let c_obj = data.data[Object.keys(data.data)[i]];
                     contentMap[c_obj.id] = c_obj;
-                    // console.log(c_obj);
+                    console.log(c_obj);
                 }
 
                 callback(contentMap);
