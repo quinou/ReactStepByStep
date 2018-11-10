@@ -58,9 +58,9 @@ class Slid extends React.Component {
 
     onDrop(ev) {
         let data = ev.dataTransfer.getData("text");
-        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, this.props.slide.txt, data);  
+        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, this.props.slide.txt, this.props.slid.content_id);  
         
-        console.log("DROP: " + data);
+        console.log("DROP: " + this.props.slid.content_id);
     }
 
     render() {
@@ -105,5 +105,10 @@ class Slid extends React.Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        slid: state.selectedReducer.slid,
+    }
+};
 //export the current classes in order to be used outside
-export default connect()(Slid);
+export default connect(mapStateToProps)(Slid);

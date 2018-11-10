@@ -28,6 +28,8 @@ const updateModelReducer = (state = { presentation: {}, content_map: {} }, actio
             
         case 'ADD_CONTENT':
             return; //TO DO
+
+        
         default:
             return state;
     }

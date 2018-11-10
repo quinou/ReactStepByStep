@@ -33,3 +33,10 @@ export const updatePresentationContent= (title, description) => {
         description: description,
     }
 }
+
+export const updateDraggedElt= (id) => {
+    return {
+        type: 'UPDATE_DRAGGED_ELEMENT',
+        obj: id,
+    }
+}

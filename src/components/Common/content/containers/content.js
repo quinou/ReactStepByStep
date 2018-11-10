@@ -1,12 +1,14 @@
 import React from 'react';
 import ComponentsContent from '../components/componentsContent';
+import { connect } from 'react-redux';
+import {updateDraggedElt} from '../../../../actions'
 
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 
 class Content extends React.Component {
     constructor(props) {
         super(props);
-
+        this.onDragStart = this.onDragStart.bind(this);
         this.state = {
 
         }
@@ -17,12 +19,12 @@ class Content extends React.Component {
     }
     
     onDragStart(ev, content) {
-        console.log("DRAG: ", content.id);
+        console.log("DRAG: ", content);
         ev.dataTransfer.setData("text/plain", content.id);
+        this.props.dispatch(updateDraggedElt(content.id));
     }
 
     render() {
-
         let render_slide;
         if (this.props.slide_value.onlyContent) {
             render_slide = (
@@ -51,4 +53,4 @@ class Content extends React.Component {
 }
 
 //export the current classes in order to be used outside
-export default Content;
+export default connect() (Content);

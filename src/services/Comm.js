@@ -16,7 +16,7 @@ class Comm {
     }
 
 
-    loadPres(presId, callback, callbackErr) {
+    loadPres(callback, callbackErr) {
         axios.get('/loadPres')
             .then(function (data) {
                 var size = Object.keys(data.data).length;

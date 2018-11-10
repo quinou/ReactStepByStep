@@ -23,7 +23,7 @@ class Main extends React.Component {
     }
     loadPresentation(){
         var comm = new Comm();
-        comm.loadPres(18, (resPres) => {
+        comm.loadPres((resPres) => {
             console.log("PRES: " + resPres);
             comm.loadContent((resContent) => {
                 console.log("CONTENT: " + resContent);
