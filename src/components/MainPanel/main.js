@@ -22,10 +22,10 @@ class Main extends React.Component {
                 store.dispatch(updateContentMap(resContent));
                 store.dispatch(updatePresentation(resPres));
             }, (errorContent) => {
-                console.log("ERROR CONTENT: " + errorContent);
+                console.log("Error content: " + errorContent);
             });
         }, (errorPres) => {
-            console.log("ERROR PRES: " + errorPres);
+            console.log("Error presentation: " + errorPres);
         });
     }
     render() {
