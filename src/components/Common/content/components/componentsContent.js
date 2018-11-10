@@ -1,20 +1,18 @@
 import React from 'react';
-// import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
+import '../../../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 
 class ComponentsContent extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     render() {
         let render_visual;
 
         let slide_value = this.props.content_map[this.props.slide_content_id];
+
         switch (slide_value.type) {
             case "img":
             case "img_url":
@@ -39,9 +37,8 @@ class ComponentsContent extends React.Component {
         return (
             <div className="thumbnail">
                 {render_visual}
-            </div>            
-    );
-
+            </div>
+          );
     }
 }
 

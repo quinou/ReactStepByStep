@@ -4,7 +4,6 @@ import './slidList.css';
 class SlidList extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {}
     }
     render() {
@@ -15,14 +14,10 @@ class SlidList extends React.Component {
         });
 
         return (
-            <div className="vertical-scroll height-100">
+            <div>
                 {slide_array}
             </div>
-
-
         );
     }
 }
-
-
 export default SlidList;

@@ -9,13 +9,8 @@
     height: 80%;
 }
 
-/* .vertical-scroll{
-    overflow-y: auto; 
-} */
-
 .contentlist{
-padding-top: 5px;
-    
+  padding-top: 5px;
 }
 
 .infoBackground{

@@ -8,14 +8,10 @@ class Comm {
         this.comm.io = {};
         this.socket = "";
         this.emitOnConnect = this.emitOnConnect.bind(this);
-
     }
-
     toString() {
         return '';
     }
-
-
     loadPres(callback, callbackErr) {
         axios.get('/loadPres')
             .then(function (data) {
@@ -36,7 +32,6 @@ class Comm {
     loadContent(callback, callbackErr) {
         axios.get('/contents')
             .then(function (data) {
-                console.log("raw content data");
                 console.log(data.data);
                 var size = Object.keys(data.data).length;
                 let contentMap = {}
@@ -45,7 +40,6 @@ class Comm {
                     contentMap[c_obj.id] = c_obj;
                     console.log(c_obj);
                 }
-
                 callback(contentMap);
             })
             .catch(function (error) {

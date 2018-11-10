@@ -1,5 +1,5 @@
 import React from 'react';
-import './editMetaSlid.css'
+
 export default class EditMetaSlid extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ export default class EditMetaSlid extends React.Component {
                     onChange={this.props.handleChangeTitle}
                     value={this.props.title}
                 />
-                <label htmlFor="currentSlideText">Text</label>
+                <label htmlFor="currentSlideText">Text </label>
                 <textarea
                     rows="5"
                     type="text"

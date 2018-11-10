@@ -14,12 +14,7 @@ class Content extends React.Component {
         }
     }
 
-    allowDrop(ev) {
-        ev.preventDefault();
-    }
-    
     onDragStart(ev, content) {
-        console.log("DRAG: ", content);
         ev.dataTransfer.setData("text/plain", content.id);
         this.props.dispatch(updateDraggedElt(content.id));
     }
@@ -29,7 +24,7 @@ class Content extends React.Component {
         if (this.props.slide_value.onlyContent) {
             render_slide = (
                 <div className="draggable" draggable="true" onDragStart={(e) => this.onDragStart(e,this.props.slide_value)}><ComponentsContent slide_content_id={this.props.slide_value.id} className="thumbnail"></ComponentsContent></div>
-            )
+            );
         }
         else {
             render_slide = (
@@ -39,7 +34,7 @@ class Content extends React.Component {
                         <h3>ID: {this.props.slide_value.id} </h3>
                     </div>
                 </div>
-            )
+            );
         }
 
         return (
@@ -51,6 +46,4 @@ class Content extends React.Component {
         );
     }
 }
-
-//export the current classes in order to be used outside
 export default connect() (Content);

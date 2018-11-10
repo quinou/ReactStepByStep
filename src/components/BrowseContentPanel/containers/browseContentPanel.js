@@ -16,12 +16,10 @@ class BrowseContentPanel extends React.Component {
         let displaySlides = [];
         for (let content in this.props.content_map) {
             displaySlides.push(<Content key={this.props.content_map[content].id} slide_value={this.props.content_map[content]}> </Content>);
-
         }
 
-
         return (
-            <div>
+            <div className="contentlist">
                 {displaySlides}
             </div>
 
@@ -38,4 +36,3 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps)(BrowseContentPanel);
-

@@ -25,11 +25,9 @@ const updateModelReducer = (state = { presentation: {}, content_map: {} }, actio
             newPresentationContent.description = action.description;
             const newStatePresentationContent = { presentation: newPresentationContent, content_map: state.content_map };
             return newStatePresentationContent;
-            
+
         case 'ADD_CONTENT':
             return; //TO DO
-
-        
         default:
             return state;
     }

@@ -5,26 +5,19 @@ import { connect } from 'react-redux';
 
 
 class Presentation extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+      super(props);
 
-        this.state = {
-            title: this.props.presentation.title,
-            description: this.props.presentation.description,
-
-        }
-    }
-
-
-
-
-    render() {
-        
-        console.log(this.props.presentation.slidArray);
-        return (
-            <BrowsePresentationPanel></BrowsePresentationPanel>
-        );
-    }
+      this.state = {
+          title: this.props.presentation.title,
+          description: this.props.presentation.description,
+      }
+  }
+  render() {
+      return (
+          <BrowsePresentationPanel></BrowsePresentationPanel>
+      );
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
