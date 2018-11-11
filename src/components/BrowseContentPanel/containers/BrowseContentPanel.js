@@ -1,6 +1,6 @@
 import React from 'react';
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
-import Content from '../../Common/content/containers/content';
+import Content from '../../Common/content/containers/Content';
 import { connect } from 'react-redux';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentsContent from '../components/componentsContent';
+import ComponentsContent from '../components/ComponentsContent';
 import { connect } from 'react-redux';
 import {updateDraggedElt} from '../../../../actions'
 

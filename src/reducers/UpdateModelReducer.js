@@ -7,10 +7,23 @@ const updateModelReducer = (state = { presentation: {}, content_map: {} }, actio
 
         case 'UPDATE_PRESENTATION_SLIDS':
             const newPresentation = JSON.parse(JSON.stringify(state.presentation));
-            for (let slid in newPresentation.slidArray) {
-                if (newPresentation.slidArray[slid].id === action.obj.id) {
-                    newPresentation.slidArray[slid] = action.obj;
+            if(action.event === 'update'){
+                for (let slid in newPresentation.slidArray) {
+                    if (newPresentation.slidArray[slid].id === action.slid.id) {
+                        newPresentation.slidArray[slid] = action.slid;
+                    }
                 }
+            }
+            else if(action.event === 'REMOVE_CMD'){
+                for (let i=0; i<newPresentation.slidArray.length; i++) {
+                    if (newPresentation.slidArray[i].id === action.slid.id) {
+                        newPresentation.slidArray.splice(i,1);
+                    }
+                }
+            }
+            else if(action.event === 'ADD_CMD'){
+                newPresentation.slidArray.push(action.slid);
+                newPresentation.slidArray.sort();
             }
             const newStatePresentationSlids = { presentation: newPresentation, content_map: state.content_map };
             return newStatePresentationSlids;

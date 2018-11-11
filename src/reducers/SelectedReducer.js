@@ -3,6 +3,7 @@ const selectedReducer = (state = { slid: {} }, action) => {
     switch (action.type) {
         case 'UPDATE_SELECTED_SLID':
             const newState1 = { slid: action.obj };
+            console.log(state.slid.id);
             return newState1;
         case 'UPDATE_DRAGGED_ELEMENT':
             const newSlid = JSON.parse(JSON.stringify(state.slid));
