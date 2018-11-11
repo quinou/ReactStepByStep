@@ -19,10 +19,11 @@ export const updatePresentation= (presentation_obj) => {
     }
 }
 
-export const updateSlid= (slid_obj) => {
+export const updateSlid= (event, slid_obj) => {
     return {
         type: 'UPDATE_PRESENTATION_SLIDS',
-        obj: slid_obj
+        slid: slid_obj,
+        event: event,
     }
 }
 
@@ -38,5 +39,12 @@ export const updateDraggedElt= (id) => {
     return {
         type: 'UPDATE_DRAGGED_ELEMENT',
         obj: id,
+    }
+}
+
+export const sendNavCmd= (command) => {
+    return {
+        type: 'COMMAND_PRESENTATION',
+        obj: command,
     }
 }

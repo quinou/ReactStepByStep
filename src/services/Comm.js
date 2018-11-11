@@ -12,15 +12,15 @@ class Comm {
     toString() {
         return '';
     }
-    loadPres(callback, callbackErr) {
+    loadPres(idPres, callback, callbackErr) {
         axios.get('/loadPres')
             .then(function (data) {
                 var size = Object.keys(data.data).length;
                 let loadedPres = "";
                 if (size > 0) {
                     console.log("data");
-                    console.log(data.data[Object.keys(data.data)[0]]);
-                    loadedPres = data.data[Object.keys(data.data)[0]];
+                    console.log(data.data[Object.keys(data.data)[idPres]]);
+                    loadedPres = data.data[Object.keys(data.data)[idPres]];
                 }
                 callback(loadedPres);
             })
@@ -106,28 +106,28 @@ class Comm {
         });
     }
 
-    backward() {
-        this.socket.emit('slidEvent', { 'CMD': "PREV" });
+    backward(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "PREV", 'PRES_ID': presUUID, 'CONTENT_ID': content_id  });
     }
 
-    forward() {
-        this.socket.emit('slidEvent', { 'CMD': "NEXT" });
+    forward(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "NEXT", 'PRES_ID': presUUID, 'CONTENT_ID': content_id  });
     }
 
-    play(presUUID) {
-        this.socket.emit('slidEvent', { 'CMD': "START", 'PRES_ID': presUUID });
+    play(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "START", 'PRES_ID': presUUID, 'CONTENT_ID': content_id });
     }
 
-    pause() {
-        this.socket.emit('slidEvent', { 'CMD': "PAUSE" });
+    pause(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "PAUSE", 'PRES_ID': presUUID, 'CONTENT_ID': content_id  });
     }
 
-    begin() {
-        this.socket.emit('slidEvent', { 'CMD': "BEGIN" });
+    begin(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "BEGIN", 'PRES_ID': presUUID, 'CONTENT_ID': content_id  });
     }
 
-    end() {
-        this.socket.emit('slidEvent', { 'CMD': "END" });
+    end(presUUID, content_id) {
+        this.socket.emit('slidEvent', { 'CMD': "END", 'PRES_ID': presUUID, 'CONTENT_ID': content_id  });
     }
 
 }

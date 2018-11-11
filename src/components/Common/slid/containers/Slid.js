@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentsContent from '../../content/components/componentsContent';
+import ComponentsContent from '../../content/components/ComponentsContent';
 
 import EditMetaSlid from '../components/EditMetaSlid';
 // import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
@@ -30,22 +30,21 @@ class Slid extends React.Component {
 
     //function with the event as parameter
     handleChangeTitle(e) {
-        this.updateCurrentSlid(this.props.slide.id, e.target.value, this.props.slide.txt, this.props.slide.content_id);
-
+        this.updateCurrentSlid('update', this.props.slide.id, e.target.value, this.props.slide.txt, this.props.slide.content_id);
     }
 
     handleChangeText(e) {
-        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, e.target.value, this.props.slide.content_id);
+        this.updateCurrentSlid('update', this.props.slide.id, this.props.slide.title, e.target.value, this.props.slide.content_id);
     }
 
-    updateCurrentSlid(id, title, txt, content_id) {
+    updateCurrentSlid(event, id, title, txt, content_id) {
         const tmpSlid = {
             id: id,
             title: title,
             txt: txt,
             content_id: content_id
         };
-        this.props.dispatch(updateSlid(tmpSlid));
+        this.props.dispatch(updateSlid(event,tmpSlid));
     }
 
     onDragOver(ev) {
@@ -53,7 +52,7 @@ class Slid extends React.Component {
     }
 
     onDrop() {
-        this.updateCurrentSlid(this.props.slide.id, this.props.slide.title, this.props.slide.txt, this.props.slid.content_id);
+        this.updateCurrentSlid('update',this.props.slide.id, this.props.slide.title, this.props.slide.txt, this.props.slid.content_id);
     }
 
     render() {
